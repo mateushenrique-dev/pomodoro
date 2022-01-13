@@ -1,0 +1,73 @@
+$width: 300px;
+$height: 300px;
+
+$width2: 267.8px;
+$height2: 267.8px;
+
+$timeFontSize: 80px;
+$actionFontSize: 14px;
+
+.clock {
+  width: $width;
+  height: $height;
+
+  border-radius: 50%;
+  background: linear-gradient(315deg, #2e325a 0%, #0e112a 100%);
+  box-shadow: -50px -50px 100px #272c5a, 50px 50px 100px #121530;
+
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .subClock {
+    width: $width2;
+    height: $height2;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: #161932;
+
+    .timer {
+      text-align: center;
+      font-family: "Kumbh Sans", sans-serif;
+
+      .time {
+        font-size: $timeFontSize;
+        color: #d7e0ff;
+      }
+
+      .action {
+        font-size: $actionFontSize;
+        color: #d7e0ff;
+        text-transform: uppercase;
+        letter-spacing: 13.125px;
+      }
+    }
+  }
+
+  @media (min-width: 426px) {
+    width: 410px;
+    height: 410px;
+
+    .subClock {
+      width: 366px;
+      height: 366px;
+
+      .timer {
+        .time {
+          font-size: 100px;
+        }
+
+        .action {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
