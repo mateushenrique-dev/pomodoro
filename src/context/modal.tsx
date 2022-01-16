@@ -25,14 +25,15 @@ export const ModalContextProvider = ({
   children,
   setModalOpen
 }: IModalContextProviderProps) => {
-  const [fontSelected, setFontSelect] = useState<Fonts>("Kumbh Sans");
-  const [colorSelected, setColorSelect] = useState<Colors>("#F87070");
+  const { saveChanges, themeConfig: { color, font } } = useContext(ConfigContext);
+  const [fontSelected, setFontSelect] = useState<Fonts>(font);
+  const [colorSelected, setColorSelect] = useState<Colors>(color);
   const [timer, setTimers] = useState<ITimers>({
       pomodoro: 0,
       shortBreak: 0,
       longBreak: 0,
     } as ITimers);
-  const { saveChanges } = useContext(ConfigContext);
+  
 
   function alterFont(font: Fonts) {
     setFontSelect(font);

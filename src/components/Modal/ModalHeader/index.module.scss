@@ -5,4 +5,8 @@
   padding-bottom: 28px;
   border-bottom: 1px solid #e3e1e1;
   color: #161932;
+
+   @media (min-width: 426px) {
+    font-size: 28px;
+   }
 }

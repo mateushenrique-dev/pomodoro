@@ -7,6 +7,27 @@
   margin: 18px auto;
 }
 
+.font {
+  border-top: 1px solid #e3e1e1;
+
+
+  @media (min-width: 426px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 24px 0;
+
+    .title {
+      padding-top: 0 !important;
+    }
+
+    .fontStyles {
+      margin: 18px 0;
+    }
+  }
+}
+
 .fontStyles {
   .fontStyle {
     width: 40px;

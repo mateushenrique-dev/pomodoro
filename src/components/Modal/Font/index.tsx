@@ -7,7 +7,7 @@ const Font = () => {
 
   return (
     <div className={styles.font}>
-      <h4>Font</h4>
+      <h4 className={styles.title}>Font</h4>
       <ul className={styles.fontStyles}>
         <li
           className={`${styles.fontStyle} ${

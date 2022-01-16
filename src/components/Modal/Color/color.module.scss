@@ -1,6 +1,22 @@
-.color,
-.font {
+.color {
   border-top: 1px solid #e3e1e1;
+
+  @media (min-width: 426px) {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    justify-content: space-between;
+
+    padding: 24px 0;
+
+    .title {
+      padding-top: 0 !important;
+    }
+
+    .colorStyles {
+      margin: 18px 0;
+    }
+  }
 }
 
 .colorStyles {
@@ -11,6 +27,8 @@
   max-width: 152px;
   gap: 16px;
   margin: 18px auto;
+
+  
 
   .colorStyle {
     border-radius: 50%;

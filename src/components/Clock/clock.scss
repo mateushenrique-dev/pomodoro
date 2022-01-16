@@ -4,9 +4,6 @@ $height: 300px;
 $width2: 267.8px;
 $height2: 267.8px;
 
-$timeFontSize: 80px;
-$actionFontSize: 14px;
-
 .clock {
   width: $width;
   height: $height;
@@ -37,19 +34,6 @@ $actionFontSize: 14px;
       text-align: center;
       position: relative;
       z-index: 1000;
-
-      .time {
-        font-size: $timeFontSize;
-        color: #d7e0ff;
-      }
-
-      .action {
-        font-size: $actionFontSize;
-        color: #d7e0ff;
-        text-transform: uppercase;
-        letter-spacing: 13.125px;
-        cursor: pointer;
-      }
     }
 
     .progress {

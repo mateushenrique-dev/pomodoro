@@ -9,7 +9,7 @@ const Time = () => {
   return (
     <div className={styles.time}>
       <h4>Time (Minutes)</h4>
-      {console.log(timers)}
+      
       <article className={styles.times}>
         <div className={styles.pomodoro}>
           <h3 className={styles.title}>Pomodoro</h3>

@@ -7,7 +7,7 @@ const Color = () => {
 
   return (
     <div className={styles.color}>
-      <h4>Color</h4>
+      <h4 className={styles.title}>Color</h4>
       <ul className={styles.colorStyles}>
         <li
           className={`${styles.colorStyle} ${

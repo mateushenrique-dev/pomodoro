@@ -13,24 +13,6 @@
     width: 100%;
     padding: 8px 6px;
 
-    .listItem {
-      padding: 18px 23px;
-      color: #d7e0ff;
-      font-size: 12px;
-      flex-shrink: 0;
-      cursor: pointer;
-
-      &.active {
-        background: #f87070;
-        color: #1e213f;
-        border-radius: 26px;
-      }
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
     @media (min-width: 426px) {
       .listItem {
         font-size: 14px;

@@ -20,6 +20,11 @@
     border-radius: 15px;
     position: relative;
 
+    @media (min-width: 426px) {
+      width: 540px;
+
+    }
+
     .closeIcon {
       cursor: pointer;
     }
@@ -33,8 +38,10 @@
       padding-top: 24px;
 
       color: #161932;
-    }
 
-    
+      @media (min-width: 426px) {
+        text-align: start;
+      }
+    }
   }
 }

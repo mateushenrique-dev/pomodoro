@@ -1,37 +1,39 @@
 import { useContext } from "react";
 import { ConfigContext } from "../../context/config";
-import "./menu.scss";
+import styles from "./menu.module.scss";
+import MenuItem from "./MenuItem";
 
 const Menu = () => {
-  const { alterActualTime, actualTime } = useContext(ConfigContext);
+  const { alterActualTime, actualTime, themeConfig } =
+    useContext(ConfigContext);
 
   return (
-    <nav className="menu">
-      <ul className="menuList">
-        <li
-          className={`listItem ${
-            "pomodoro" === actualTime && "active"
-          }`}
+    <nav className={styles.menu}>
+      <ul className={styles.menuList}>
+        <MenuItem
+          themeConfig={themeConfig}
+          actualTime={actualTime}
+          type="pomodoro"
           onClick={() => alterActualTime("pomodoro")}
         >
-          pomodoro 
-        </li>
-        <li
-          className={`listItem ${
-            "shortBreak" === actualTime && "active"
-          }`}
+          Pomodoro
+        </MenuItem>
+        <MenuItem
+          themeConfig={themeConfig}
+          actualTime={actualTime}
+          type="shortBreak"
           onClick={() => alterActualTime("shortBreak")}
         >
-          short break
-        </li>
-        <li
-          className={`listItem ${
-            "longBreak" === actualTime && "active"
-          }`}
+          Short Break
+        </MenuItem>
+        <MenuItem
+          themeConfig={themeConfig}
+          actualTime={actualTime}
+          type="longBreak"
           onClick={() => alterActualTime("longBreak")}
         >
-          long break
-        </li>
+          Long Break
+        </MenuItem>
       </ul>
     </nav>
   );

@@ -23,4 +23,21 @@
     opacity: 0.4;
     font-family: Kumbh Sans;
   }
+
+  @media (min-width: 426px) {
+    padding: 24px 0;
+
+    .times {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .pomodoro,
+    .shortBreak,
+    .longBreak {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
 }

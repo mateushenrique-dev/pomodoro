@@ -6,7 +6,11 @@ import Timer from "./Timer";
 import useClock from "./useClock";
 
 const Clock = () => {
-  const { actualTime, timers } = useContext(ConfigContext)
+  const {
+    actualTime,
+    timers,
+    themeConfig: { color },
+  } = useContext(ConfigContext);
   const clock = useClock(timers[actualTime as Timers]);
 
   return (
@@ -18,11 +22,11 @@ const Clock = () => {
             cx="183"
             cy="185"
             r="160"
-            stroke="#F87070"
+            stroke={color}
             strokeWidth={15}
             fill="transparent"
             style={{
-              strokeDashoffset: clock.progress
+              strokeDashoffset: 0,
             }}
           ></circle>
         </svg>
