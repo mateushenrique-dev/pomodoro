@@ -35,7 +35,8 @@ $actionFontSize: 14px;
 
     .timer {
       text-align: center;
-      font-family: "Kumbh Sans", sans-serif;
+      position: relative;
+      z-index: 1000;
 
       .time {
         font-size: $timeFontSize;
@@ -47,6 +48,20 @@ $actionFontSize: 14px;
         color: #d7e0ff;
         text-transform: uppercase;
         letter-spacing: 13.125px;
+        cursor: pointer;
+      }
+    }
+
+    .progress {
+      display: flex; 
+      align-items: center;
+
+      position: absolute;
+      
+
+      circle {
+        stroke-dasharray: 1005;
+        stroke-dashoffset: 500;
       }
     }
   }

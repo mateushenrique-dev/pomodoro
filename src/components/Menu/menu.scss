@@ -16,9 +16,9 @@
     .listItem {
       padding: 18px 23px;
       color: #d7e0ff;
-      font-family: "Kumbh Sans", sans-serif;
       font-size: 12px;
       flex-shrink: 0;
+      cursor: pointer;
 
       &.active {
         background: #f87070;
