@@ -1,9 +1,9 @@
 import Menu from '../Menu';
-import './header.scss';
+import styles from './header.module.scss';
 
 const Header = () => (
-  <header className='header'>
-    <p className='title'>pomodoro</p>
+  <header className={styles.header}>
+    <p className={styles.title}>pomodoro</p>
     <Menu />
   </header>
 );

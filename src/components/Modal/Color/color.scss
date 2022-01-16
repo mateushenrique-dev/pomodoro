@@ -1,0 +1,40 @@
+.color, .font {
+      border-top: 1px solid #e3e1e1;
+    }
+
+    .colorStyles {
+      margin-bottom: 32px;
+
+      .colorStyle {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+
+        &:nth-child(1) {
+          background: #f87070;
+        }
+
+        &:nth-child(2) {
+          background: #70f3f8;
+        }
+
+        &:nth-child(3) {
+          background: #d881f8;
+        }
+
+        &.active {
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            top: 0;
+            left: 0;
+            background: url("../../../assets/check.svg") no-repeat center;
+          }
+        }
+      }
+    }

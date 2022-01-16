@@ -16,31 +16,35 @@
     width: 327px;
     padding: 24px;
     border-radius: 15px;
+    position: relative;
 
     .closeIcon {
       cursor: pointer;
     }
 
-    .header {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding-bottom: 28px;
-      border-bottom: 1px solid #e3e1e1;
+    h4 {
+      font-size: 11px;
+      line-height: 14px;
+      text-align: center;
+      letter-spacing: 4.23077px;
+      text-transform: uppercase;
+      padding-top: 24px;
+
       color: #161932;
     }
 
-    .time {
-      h4 {
-        font-size: 11px;
-        line-height: 14px;
-        text-align: center;
-        letter-spacing: 4.23077px;
-        text-transform: uppercase;
-        padding-top: 24px;
-
-        color: #161932;
+    .applyButton {
+        background: #f87070;
+        padding: 17px 47px;
+        border-radius: 27px;
+        border: none;
+        font-size: 16px;
+        color: #fff;
+        position: absolute;
+        bottom: -53px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
       }
-    }
   }
 }

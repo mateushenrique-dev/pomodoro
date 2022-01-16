@@ -1,0 +1,40 @@
+.fontStyles,
+.colorStyles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 152px;
+  gap: 16px;
+  margin: 18px auto;
+}
+
+.fontStyles {
+  .fontStyle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #eff1fa;
+    color: #1e213f;
+    opacity: 0.73;
+    line-height: 19px;
+
+    &.active {
+      background: #161932;
+      color: #fff;
+      opacity: 1;
+    }
+
+    &:nth-child(2) {
+      font-family: "Roboto Slab", serif;
+      line-height: 20px;
+    }
+
+    &:nth-child(3) {
+      font-family: "Space Mono", monospace;
+      line-height: 22px;
+    }
+  }
+}
