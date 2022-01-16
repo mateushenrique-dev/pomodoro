@@ -1,5 +1,4 @@
-.fontStyles,
-.colorStyles {
+.fontStyles {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,6 +19,7 @@
     color: #1e213f;
     opacity: 0.73;
     line-height: 19px;
+    cursor: pointer;
 
     &.active {
       background: #161932;

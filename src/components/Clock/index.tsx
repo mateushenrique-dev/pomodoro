@@ -1,12 +1,13 @@
 import { useContext } from 'react';
 import { ConfigContext } from '../../context/config';
+import { Timers } from '../../context/modal';
 import "./clock.scss";
 import Timer from "./Timer";
 import useClock from "./useClock";
 
 const Clock = () => {
-  const { actualTime } = useContext(ConfigContext)
-  const clock = useClock(actualTime);
+  const { actualTime, timers } = useContext(ConfigContext)
+  const clock = useClock(timers[actualTime as Timers]);
 
   return (
     <main className="clock">

@@ -1,0 +1,26 @@
+.time {
+  padding-bottom: 24px;
+
+  h4 {
+    margin-bottom: 18px;
+  }
+
+  .pomodoro,
+  .shortBreak,
+  .longBreak {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #1e213f;
+
+    mix-blend-mode: normal;
+    opacity: 0.4;
+    font-family: Kumbh Sans;
+  }
+}

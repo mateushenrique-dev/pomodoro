@@ -1,14 +1,35 @@
-import "./color.scss"
+import { useContext } from "react";
+import { ModalContext } from "../../../context/modal";
+import styles from "./color.module.scss";
 
-const Color = () => (
-  <div className="color">
-    <h4>Color</h4>
-    <ul className="colorStyles">
-      <li className="colorStyle"></li>
-      <li className="colorStyle active"></li>
-      <li className="colorStyle active"></li>
-    </ul>
-  </div>
-);
+const Color = () => {
+  const { colorSelected, alterColor } = useContext(ModalContext);
 
-export default Color
+  return (
+    <div className={styles.color}>
+      <h4>Color</h4>
+      <ul className={styles.colorStyles}>
+        <li
+          className={`${styles.colorStyle} ${
+            colorSelected === "#F87070" && styles.active
+          }`}
+          onClick={() => alterColor("#F87070")}
+        ></li>
+        <li
+          className={`${styles.colorStyle} ${
+            colorSelected === "#70F3F8" && styles.active
+          }`}
+          onClick={() => alterColor("#70F3F8")}
+        ></li>
+        <li
+          className={`${styles.colorStyle} ${
+            colorSelected === "#D881F8" && styles.active
+          }`}
+          onClick={() => alterColor("#D881F8")}
+        ></li>
+      </ul>
+    </div>
+  );
+};
+
+export default Color;

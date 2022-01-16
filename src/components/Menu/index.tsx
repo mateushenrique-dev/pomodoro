@@ -3,14 +3,14 @@ import { ConfigContext } from "../../context/config";
 import "./menu.scss";
 
 const Menu = () => {
-  const { alterActualTime, actualTime, timers } = useContext(ConfigContext);
+  const { alterActualTime, actualTime } = useContext(ConfigContext);
 
   return (
     <nav className="menu">
       <ul className="menuList">
         <li
           className={`listItem ${
-            timers["pomodoro"] === actualTime && "active"
+            "pomodoro" === actualTime && "active"
           }`}
           onClick={() => alterActualTime("pomodoro")}
         >
@@ -18,7 +18,7 @@ const Menu = () => {
         </li>
         <li
           className={`listItem ${
-            timers["shortBreak"] === actualTime && "active"
+            "shortBreak" === actualTime && "active"
           }`}
           onClick={() => alterActualTime("shortBreak")}
         >
@@ -26,7 +26,7 @@ const Menu = () => {
         </li>
         <li
           className={`listItem ${
-            timers["longBreak"] === actualTime && "active"
+            "longBreak" === actualTime && "active"
           }`}
           onClick={() => alterActualTime("longBreak")}
         >

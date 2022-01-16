@@ -7,6 +7,8 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 100000;
 
+  overflow-y: scroll;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,18 +35,6 @@
       color: #161932;
     }
 
-    .applyButton {
-        background: #f87070;
-        padding: 17px 47px;
-        border-radius: 27px;
-        border: none;
-        font-size: 16px;
-        color: #fff;
-        position: absolute;
-        bottom: -53px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        cursor: pointer;
-      }
+    
   }
 }
