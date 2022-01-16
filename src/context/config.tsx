@@ -37,7 +37,10 @@ export function ConfigContextProvider({
   children,
 }: IConfigContextProviderProps) {
   const [themeConfig, setThemeConfig] = useState<IThemeConfig>(
-    {} as IThemeConfig
+    {
+      color: "#F87070",
+      font: "Kumbh Sans"
+    } as IThemeConfig
   );
   const [timers, setTimers] = useState<ITimers>({
     pomodoro: 60000,
