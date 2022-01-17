@@ -1,5 +1,5 @@
-$width: 300px;
-$height: 300px;
+$width: 250px;
+$height: 250px;
 
 $width2: 267.8px;
 $height2: 267.8px;
@@ -45,18 +45,17 @@ $height2: 267.8px;
 
       circle {
         stroke-dasharray: 1005;
-        stroke-dashoffset: 500;
       }
     }
   }
 
   @media (min-width: 426px) {
-    width: 410px;
-    height: 410px;
+    width: calc(410px - 30px);
+    height: calc(410px - 30px);
 
     .subClock {
-      width: 366px;
-      height: 366px;
+      width: calc(366px - 20px);
+      height: calc(366px - 20px);
 
       .timer {
         .time {

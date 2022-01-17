@@ -1,6 +1,6 @@
 .menu {
   background: #161932;
-  margin: 45px 24px;
+  margin: 32px 24px;
 
   max-width: 373px;
 
@@ -17,6 +17,11 @@
       .listItem {
         font-size: 14px;
       }
+    }
+
+    @media (max-width: 321px) {
+      display: block;
+      width: 250px;
     }
   }
 }

@@ -10,10 +10,12 @@ function App() {
 
   return (
     <ConfigContextProvider>
-      <Header />
-      <Clock />
-      <Settings setModalOpen={setModalOpen} />
-      <div>{isModalOpen && <Modal setModalOpen={setModalOpen} />}</div>
+      <main className="app">
+        <Header />
+        <Clock />
+        <Settings setModalOpen={setModalOpen} />
+        <div>{isModalOpen && <Modal setModalOpen={setModalOpen} />}</div>
+      </main>
     </ConfigContextProvider>
   );
 }

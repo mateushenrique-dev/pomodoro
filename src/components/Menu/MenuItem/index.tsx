@@ -25,7 +25,7 @@ const fontStyle = {
 };
 
 const MenuItem = styled.li`
-  padding: 18px 23px;
+  padding: 13px 23px;
   color: #d7e0ff;
   font-size: 12px;
   flex-shrink: 0;

@@ -14,7 +14,7 @@ const Clock = () => {
   const clock = useClock(timers[actualTime as Timers]);
 
   return (
-    <main className="clock">
+    <section className="clock">
       <div className="subClock">
         <Timer {...clock} />
         <svg className="progress" width={366} height={366}>
@@ -23,7 +23,7 @@ const Clock = () => {
             cy="185"
             r="160"
             stroke={color}
-            strokeWidth={15}
+            strokeWidth={13}
             fill="transparent"
             style={{
               strokeDashoffset: 0,
@@ -31,7 +31,7 @@ const Clock = () => {
           ></circle>
         </svg>
       </div>
-    </main>
+    </section>
   );
 };
 
