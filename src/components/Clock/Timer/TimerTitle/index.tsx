@@ -12,6 +12,8 @@ const TimerTitle = styled.h1`
   ${({ font }: ITimerTitle) => css`
     font-family: ${font};
   `}
+
+  cursor: pointer;
 `;
 
 export default TimerTitle;

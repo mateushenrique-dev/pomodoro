@@ -17,16 +17,11 @@ const Timer = ({ startCount, pauseCount, minutes, seconds, counting }: TimerProp
 
   return (
     <div className="timer">
-      <TimerTitle
-        font={font}
-      >
+      <TimerTitle font={font} onClick={counting ? pauseCount : startCount}>
         {minutes.toString().padStart(2, "0")}:
         {seconds.toString().padStart(2, "0")}
       </TimerTitle>
-      <ActionButton
-        onClick={counting ? pauseCount : startCount}
-        font={font}
-      >
+      <ActionButton onClick={counting ? pauseCount : startCount} font={font}>
         {counting ? "Pause" : "Start"}
       </ActionButton>
     </div>

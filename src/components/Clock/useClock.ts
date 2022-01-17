@@ -1,9 +1,15 @@
 import { useEffect, useRef, useState } from "react";
+import Swal from 'sweetalert2';
 
 const useClock = (timeToCount: number) => {
   const [time, setTime] = useState(timeToCount);
   const [counting, setCounting] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [audio] = useState(
+    new Audio(
+      "https://soundbible.com/mp3/Electrical_Sweep-Sweeper-1760111493.mp3"
+    )
+  );
 
   const intervalRef = useRef<any>(null);
 
@@ -19,6 +25,7 @@ const useClock = (timeToCount: number) => {
 
   function count() {
     setTime((time) => {
+      
       if ((time - 1000) < 0) {
         setProgress(1000)
 
@@ -30,6 +37,19 @@ const useClock = (timeToCount: number) => {
     
     setProgress((progress) => progress + 5);
   }
+
+  useEffect(() => {
+    if (time === 0) {
+      audio.play();
+      Swal.fire({
+        title: 'Seu tempo acabou!',
+      }).then(result => {
+        if (result.isConfirmed) {
+          audio.pause()
+        }
+      });
+    }
+  }, [time, audio])
 
   useEffect(() => {
     if (counting) {
@@ -54,7 +74,7 @@ const useClock = (timeToCount: number) => {
     counting,
     minutes,
     seconds,
-    progress,
+    progress, 
   };
 };
 
