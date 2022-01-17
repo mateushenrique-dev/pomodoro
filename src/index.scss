@@ -1,0 +1,27 @@
+body {
+  background: #1e213f;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.app {
+  height: 100%;
+
+  @media (min-width: 457px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    max-height: 100vh;
+  }
+}

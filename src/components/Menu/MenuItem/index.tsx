@@ -28,7 +28,7 @@ const MenuItem = styled.li`
   padding: 13px 23px;
   color: #d7e0ff;
   font-size: 12px;
-  flex-shrink: 0;
+  flex-shrink: 1;
   cursor: pointer;
 
   &:hover {

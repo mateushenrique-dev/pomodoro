@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { ConfigContext } from '../../context/config';
 import { Timers } from '../../context/modal';
 import "./clock.scss";
+import ProgressCircle from './ProgressCircle';
 import Timer from "./Timer";
 import useClock from "./useClock";
 
@@ -17,19 +18,7 @@ const Clock = () => {
     <section className="clock">
       <div className="subClock">
         <Timer {...clock} />
-        <svg className="progress" width={366} height={366}>
-          <circle
-            cx="183"
-            cy="185"
-            r="160"
-            stroke={color}
-            strokeWidth={13}
-            fill="transparent"
-            style={{
-              strokeDashoffset: 0,
-            }}
-          ></circle>
-        </svg>
+        <ProgressCircle color={color} />
       </div>
     </section>
   );

@@ -6,8 +6,12 @@ interface ITimerTitle {
 }
 
 const TimerTitle = styled.h1`
-  font-size: 80px;
+  font-size: 60px;
   color: #d7e0ff;
+
+  @media (min-width: 457px) {
+    font-size: 80px; 
+  }
 
   ${({ font }: ITimerTitle) => css`
     font-family: ${font};
