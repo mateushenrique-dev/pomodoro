@@ -36,17 +36,7 @@ $height2: 267.8px;
       z-index: 1000;
     }
 
-    .progress {
-      display: flex; 
-      align-items: center;
 
-      position: absolute;
-      
-
-      circle {
-        stroke-dasharray: 1005;
-      }
-    }
   }
 
   @media (min-width: 426px) {
