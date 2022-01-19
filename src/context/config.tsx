@@ -1,10 +1,5 @@
-import {
-  createContext,
-  ReactElement,
-  useEffect,
-  useState,
-} from "react";
-import { Colors, Fonts, Timers } from "./modal";
+import { createContext, ReactElement, useEffect, useState } from "react";
+import { Colors, Fonts, Timers } from '../types';
 
 export const ConfigContext = createContext<IConfigContext>(
   {} as IConfigContext
@@ -30,47 +25,68 @@ interface IConfigContext {
   timers: ITimers;
   actualTime: string;
   alterActualTime: (timer: Timers) => void;
-  saveChanges: (timers: ITimers, themeConfig: IThemeConfig) => void;
+  saveChanges: () => void;
+  alterTimers: (timers: Timers, value: number) => void;
+  fontSelected: Fonts;
+  colorSelected: Colors;
+  alterColor: (color: Colors) => void;
+  alterFont: (font: Fonts) => void;
 }
 
 export function ConfigContextProvider({
   children,
 }: IConfigContextProviderProps) {
-  const [themeConfig, setThemeConfig] = useState<IThemeConfig>(
-    {
-      color: "#F87070",
-      font: "Kumbh Sans"
-    } as IThemeConfig
-  );
+  const [themeConfig, setThemeConfig] = useState<IThemeConfig>({
+    color: "#F87070",
+    font: "Kumbh Sans",
+  } as IThemeConfig);
   const [timers, setTimers] = useState<ITimers>({
     pomodoro: 60000,
     shortBreak: 120000,
     longBreak: 300000,
   });
   const [actualTime, setActualTime] = useState<Timers>("pomodoro");
+  const [fontSelected, setFontSelect] = useState<Fonts>(themeConfig.font);
+  const [colorSelected, setColorSelect] = useState<Colors>(themeConfig.color);
 
   function alterActualTime(timer: Timers) {
     setActualTime(timer);
   }
 
-  function saveChanges(timersToChange: ITimers, themeConfig: IThemeConfig) {
-    setTimers(timersToChange);
-    setThemeConfig(themeConfig);
+  function saveChanges() {
+    setThemeConfig({ color: colorSelected, font: fontSelected })
     localStorage.setItem(
       "configuration",
-      JSON.stringify({ theme: { ...themeConfig }, timers: { ...timersToChange } })
+      JSON.stringify({
+        theme: { color: colorSelected, font: fontSelected },
+        timers: { ...timers },
+      })
     );
   }
 
+  function alterTimers(timer: Timers, value: number) {
+    setTimers((timers) => {
+      return { ...timers, [timer]: value } as ITimers;
+    });
+  }
+
+  function alterFont(font: Fonts) {
+    setFontSelect(font);
+  }
+
+  function alterColor(color: Colors) {
+    setColorSelect(color);
+  }
+
   useEffect(() => {
-    const localStorageConfig = localStorage.getItem("configuration")
-    
+    const localStorageConfig = localStorage.getItem("configuration");
+
     if (localStorageConfig) {
       const { theme, timers } = JSON.parse(localStorageConfig);
-      setTimers(timers)
-      setThemeConfig(theme)
+      setTimers(timers);
+      setThemeConfig(theme);
     }
-  }, [setTimers])
+  }, [setTimers]);
 
   return (
     <ConfigContext.Provider
@@ -80,6 +96,11 @@ export function ConfigContextProvider({
         actualTime,
         alterActualTime,
         saveChanges,
+        alterTimers,
+        alterFont,
+        alterColor,
+        colorSelected,
+        fontSelected,
       }}
     >
       {children}

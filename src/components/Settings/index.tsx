@@ -1,16 +1,17 @@
-import "./settings.scss";
+import { useContext } from 'react';
 import { IoMdSettings } from "react-icons/io";
-import { Dispatch, SetStateAction } from 'react';
+import { ModalContext } from '../../context/modal';
+import { ConfigButton } from './styles';
 
-interface ISettingsProps {
-  setModalOpen: Dispatch<SetStateAction<boolean>>
-}
+const Settings = () => {
+  const { setModalOpen } = useContext(ModalContext)
 
-const Settings = ({ setModalOpen }: ISettingsProps) => {
   return (
-    <button className="settings" onClick={() => setModalOpen(isModalOpen => !isModalOpen)}>
+    <ConfigButton
+      onClick={() => setModalOpen((isModalOpen) => !isModalOpen)}
+    >
       <IoMdSettings size="27" color="#D7E0FF" />
-    </button>
+    </ConfigButton>
   );
 };
 

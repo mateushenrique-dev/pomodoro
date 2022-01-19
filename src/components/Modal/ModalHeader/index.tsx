@@ -1,16 +1,17 @@
-import { Dispatch, SetStateAction } from "react";
+import { useContext } from 'react';
 import { ReactComponent as CloseIcon } from "../../../assets/close.svg";
-import styles from "./index.module.scss"
+import { ModalContext } from '../../../context/modal';
+import { HeaderWrapper } from "./styles";
 
-interface IHeaderProps {
-  setModalOpen: Dispatch<SetStateAction<boolean>>;
-}
+const ModalHeader = () => {
+  const { setModalOpen } = useContext(ModalContext)
 
-const ModalHeader = ({ setModalOpen }: IHeaderProps) => (
-  <div className={styles.header}>
-    <h3 className={styles.title}>Settings</h3>
-    <CloseIcon className="closeIcon" onClick={() => setModalOpen(false)} />
-  </div>
-);
+  return (
+    <HeaderWrapper>
+      <h3>Settings</h3>
+      <CloseIcon className="closeIcon" onClick={() => setModalOpen(false)} />
+    </HeaderWrapper>
+  );
+};
 
 export default ModalHeader;

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { ConfigContext } from '../../context/config';
-import { Timers } from '../../context/modal';
-import "./clock.scss";
+import { Timers } from '../../types';
 import ProgressCircle from './ProgressCircle';
+import { ClockContainer, ClockWrapper } from "./styles";
 import Timer from "./Timer";
 import useClock from "./useClock";
 
@@ -15,12 +15,12 @@ const Clock = () => {
   const clock = useClock(timers[actualTime as Timers]);
 
   return (
-    <section className="clock">
-      <div className="subClock">
+    <ClockWrapper>
+      <ClockContainer>
         <Timer {...clock} />
         <ProgressCircle color={color} />
-      </div>
-    </section>
+      </ClockContainer>
+    </ClockWrapper>
   );
 };
 

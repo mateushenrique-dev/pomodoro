@@ -1,10 +1,11 @@
-import { Colors } from "../../../context/modal";
-import styles from "./progress-circle.module.scss"
+
+import { Colors } from '../../../types';
+import { Circle, Progress } from './styles';
 
 const ProgressCircle = ({ color }: { color: Colors }) => {
   return (
-    <svg width={248} height={248} viewBox="0 0 250 250" className={styles.progress}>
-      <circle
+    <Progress width={248} height={248} viewBox="0 0 250 250">
+      <Circle
         cx={125}
         cy={125}
         r={110}
@@ -14,8 +15,8 @@ const ProgressCircle = ({ color }: { color: Colors }) => {
         style={{
           strokeDashoffset: 0,
         }}
-      ></circle>
-    </svg>
+      ></Circle>
+    </Progress>
   );
 };
 

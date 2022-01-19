@@ -1,9 +1,6 @@
 import { createContext, Dispatch, ReactElement, SetStateAction, useContext, useState } from "react";
-import { ConfigContext, ITimers } from "./config";
-
-export type Fonts = "Kumbh Sans" | "Roboto Slab" | "Space Mono";
-export type Colors = "#F87070" | "#70F3F8" | "#D881F8";
-export type Timers = "pomodoro" | "shortBreak" | "longBreak";
+import { Colors, Fonts, Timers } from '../types';
+import { ConfigContext  } from "./config";
 
 interface IModalContext {
   fontSelected: Fonts;
@@ -12,49 +9,33 @@ interface IModalContext {
   alterColor: (color: Colors) => void;
   alterTimers: (timer: Timers, value: number) => void;
   applyChanges: () => void;
+  isModalOpen: boolean;
+  setModalOpen: Dispatch<SetStateAction<boolean>>
 }
 
 export const ModalContext = createContext<IModalContext>({} as IModalContext);
 
 interface IModalContextProviderProps {
   children: ReactElement | ReactElement[] | Element;
-  setModalOpen: Dispatch<SetStateAction<boolean>>
 }
 
 export const ModalContextProvider = ({
   children,
-  setModalOpen
 }: IModalContextProviderProps) => {
-  const { saveChanges, themeConfig: { color, font } } = useContext(ConfigContext);
-  const [fontSelected, setFontSelect] = useState<Fonts>(font);
-  const [colorSelected, setColorSelect] = useState<Colors>(color);
-  const [timer, setTimers] = useState<ITimers>({
-      pomodoro: 0,
-      shortBreak: 0,
-      longBreak: 0,
-    } as ITimers);
-  
+  const {
+    saveChanges,
+    alterTimers,
+    fontSelected,
+    colorSelected,
+    alterFont,
+    alterColor,
+  } = useContext(ConfigContext);
 
-  function alterFont(font: Fonts) {
-    setFontSelect(font);
-  }
-
-  function alterColor(color: Colors) {
-    setColorSelect(color);
-  }
+  const [isModalOpen, setModalOpen] = useState(false)
 
   function applyChanges() {
-    saveChanges(timer, { color: colorSelected, font: fontSelected });
+    saveChanges();
     setModalOpen(false)
-  }
-
-  function alterTimers(
-    timer: Timers,
-    value: number
-  ) {
-    setTimers((timers) => {
-      return {...timers, [timer]: value} as ITimers;
-    });
   }
 
   return (
@@ -66,6 +47,8 @@ export const ModalContextProvider = ({
         alterColor,
         alterTimers,
         applyChanges,
+        isModalOpen,
+        setModalOpen,
       }}
     >
       {children}

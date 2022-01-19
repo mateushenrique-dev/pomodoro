@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import { ConfigContext } from "../../context/config";
-import styles from "./menu.module.scss";
 import MenuItem from "./MenuItem";
+import { MenuList, MenuWrapper } from './styles';
 
 const Menu = () => {
   const { alterActualTime, actualTime, themeConfig } =
     useContext(ConfigContext);
 
   return (
-    <nav className={styles.menu}>
-      <ul className={styles.menuList}>
+    <MenuWrapper>
+      <MenuList>
         <MenuItem
           themeConfig={themeConfig}
           actualTime={actualTime}
@@ -34,8 +34,8 @@ const Menu = () => {
         >
           Long Break
         </MenuItem>
-      </ul>
-    </nav>
+      </MenuList>
+    </MenuWrapper>
   );
 };
 

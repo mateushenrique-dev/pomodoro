@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { Fonts, Timers } from "../../../context/modal";
+import { Fonts, Timers } from '../../../types';
 
 interface IThemeConfig {
   color: string;
@@ -46,6 +46,11 @@ const MenuItem = styled.li`
       `;
     }
   }}
+  
+  @media (min-width: 426px) {
+    font-size: 14px;
+    flex-shrink: 0;
+  }
 `;
 
 export default MenuItem;

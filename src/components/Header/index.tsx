@@ -1,11 +1,11 @@
 import Menu from '../Menu';
-import styles from './header.module.scss';
+import { HeaderTitle, HeaderWrapper } from "./styles";
 
 const Header = () => (
-  <header className={styles.header}>
-    <p className={styles.title}>pomodoro</p>
+  <HeaderWrapper>
+    <HeaderTitle>pomodoro</HeaderTitle>
     <Menu />
-  </header>
+  </HeaderWrapper>
 );
 
 export default Header;

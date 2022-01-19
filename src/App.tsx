@@ -1,22 +1,20 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Clock from "./components/Clock";
 import Header from "./components/Header";
 import Modal from "./components/Modal";
 import Settings from "./components/Settings";
-import { ConfigContextProvider } from "./context/config";
+import { ModalContext } from './context/modal';
 
 function App() {
-  const [isModalOpen, setModalOpen] = useState<boolean>(false);
+  const {isModalOpen} = useContext(ModalContext)
 
   return (
-    <ConfigContextProvider>
-      <main className="app">
-        <Header />
-        <Clock />
-        <Settings setModalOpen={setModalOpen} />
-        <div>{isModalOpen && <Modal setModalOpen={setModalOpen} />}</div>
-      </main>
-    </ConfigContextProvider>
+    <main className="app">
+      <Header />
+      <Clock />
+      <Settings />
+      {isModalOpen && <Modal />}
+    </main>
   );
 }
 

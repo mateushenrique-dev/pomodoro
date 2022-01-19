@@ -1,15 +1,11 @@
 import { useContext } from 'react';
 import { ModalContext } from '../../../context/modal';
-import styles from "./apply.module.scss";
+import { ApplyButtonWrapper } from './styles';
 
 const ApplyButton = () => {
   const { applyChanges } = useContext(ModalContext)
 
-  return (
-    <button className={styles.applyButton} onClick={applyChanges}>
-      Apply
-    </button>
-  );
+  return <ApplyButtonWrapper onClick={applyChanges}>Apply</ApplyButtonWrapper>;
 }
 
 export default ApplyButton

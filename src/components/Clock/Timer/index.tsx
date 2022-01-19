@@ -1,22 +1,28 @@
 import { useContext } from 'react';
 import { ConfigContext } from '../../../context/config';
-import ActionButton from './ActionButton';
-import TimerTitle from './TimerTitle';
+import { ActionButton, TimerTitle, TimerWrapper } from "./ styles";
 
 interface TimerProps {
   startCount: () => void;
-  pauseCount: () => void
+  pauseCount: () => void;
   minutes: number;
   seconds: number;
   counting: boolean;
 }
 
-const Timer = ({ startCount, pauseCount, minutes, seconds, counting }: TimerProps) => {
-  
-  const { themeConfig: { font } } = useContext(ConfigContext)
+const Timer = ({
+  startCount,
+  pauseCount,
+  minutes,
+  seconds,
+  counting,
+}: TimerProps) => {
+  const {
+    themeConfig: { font },
+  } = useContext(ConfigContext);
 
   return (
-    <div className="timer">
+    <TimerWrapper>
       <TimerTitle font={font} onClick={counting ? pauseCount : startCount}>
         {minutes.toString().padStart(2, "0")}:
         {seconds.toString().padStart(2, "0")}
@@ -24,7 +30,8 @@ const Timer = ({ startCount, pauseCount, minutes, seconds, counting }: TimerProp
       <ActionButton onClick={counting ? pauseCount : startCount} font={font}>
         {counting ? "Pause" : "Start"}
       </ActionButton>
-    </div>
-  );};
+    </TimerWrapper>
+  );
+};
 
 export default Timer;

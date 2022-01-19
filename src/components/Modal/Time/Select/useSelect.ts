@@ -1,6 +1,6 @@
 import { ModalContext } from "./../../../../context/modal";
 import { useContext, useEffect, useState } from "react";
-import { Timers } from "../../../../context/modal";
+import { Timers } from '../../../../types';
 function useSelect(initialValue: number, type: Timers) {
   const [value, setValue] = useState<number>(initialValue);
   const { alterTimers } = useContext(ModalContext);

@@ -1,9 +1,8 @@
-import styles from "./select.module.scss";
-
 import { ReactComponent as ArrowUp } from "../../../../assets/arrow_up.svg";
 import { ReactComponent as ArrowDown } from "../../../../assets/arrow_down.svg";
 import useSelect from './useSelect';
-import { Timers } from '../../../../context/modal';
+import { Arrow, Arrows, SelectWrapper } from './styles';
+import { Timers } from '../../../../types';
 
 interface ISelectProps {
   initialValue: number;
@@ -14,27 +13,25 @@ const Select = ({ initialValue, type }: ISelectProps) => {
   const { increment, decrement, value } = useSelect(initialValue, type);
 
   return (
-    <div className={styles.select}>
-      <div className={styles.value}>
-        <p className={styles.valueNumber}>{value}</p>
+    <SelectWrapper>
+      <div>
+        <p>{value}</p>
       </div>
-      <div className={styles.arrows}>
-        <button
-          className={styles.increment}
+      <Arrows>
+        <Arrow
           title="increment"
           onClick={increment}
         >
           <ArrowUp />
-        </button>
-        <button
-          className={styles.decrement}
+        </Arrow>
+        <Arrow
           title="decrement"
           onClick={decrement}
         >
           <ArrowDown />
-        </button>
-      </div>
-    </div>
+        </Arrow>
+      </Arrows>
+    </SelectWrapper>
   );
 };
 

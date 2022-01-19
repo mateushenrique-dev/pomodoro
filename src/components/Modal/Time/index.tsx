@@ -1,39 +1,39 @@
 import { useContext } from "react";
 import { ConfigContext } from "../../../context/config";
 import Select from "./Select";
-import styles from "./time.module.scss";
+import { TimeBreak, Times, TimeWrapper, TitleBreak } from "./styles";
 
 const Time = () => {
   const { timers } = useContext(ConfigContext);
 
   return (
-    <div className={styles.time}>
-      <h4>Time (Minutes)</h4>
-      
-      <article className={styles.times}>
-        <div className={styles.pomodoro}>
-          <h3 className={styles.title}>Pomodoro</h3>
+    <TimeWrapper>
+      <h4 className='timeTitle'>Time (Minutes)</h4>
+
+      <Times>
+        <TimeBreak>
+          <TitleBreak>Pomodoro</TitleBreak>
           <Select
             initialValue={Math.floor((timers.pomodoro / 1000 / 60) << 0)}
-            type='pomodoro'
+            type="pomodoro"
           />
-        </div>
-        <div className={styles.shortBreak}>
-          <p className={styles.title}>Short Break</p>
+        </TimeBreak>
+        <TimeBreak>
+          <TitleBreak>Short Break</TitleBreak>
           <Select
             initialValue={Math.floor((timers.shortBreak / 1000 / 60) << 0)}
-            type='shortBreak'
+            type="shortBreak"
           />
-        </div>
-        <div className={styles.longBreak}>
-          <p className={styles.title}>Long Break</p>
+        </TimeBreak>
+        <TimeBreak>
+          <TitleBreak>Long Break</TitleBreak>
           <Select
             initialValue={Math.floor((timers.longBreak / 1000 / 60) << 0)}
             type="longBreak"
           />
-        </div>
-      </article>
-    </div>
+        </TimeBreak>
+      </Times>
+    </TimeWrapper>
   );
 };
 
