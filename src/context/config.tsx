@@ -41,9 +41,9 @@ export function ConfigContextProvider({
     font: "Kumbh Sans",
   } as IThemeConfig);
   const [timers, setTimers] = useState<ITimers>({
-    pomodoro: 60000,
-    shortBreak: 120000,
-    longBreak: 300000,
+    pomodoro: (25 * 60000),
+    shortBreak: (5 * 60000),
+    longBreak: (15 * 60000),
   });
   const [actualTime, setActualTime] = useState<Timers>("pomodoro");
   const [fontSelected, setFontSelect] = useState<Fonts>(themeConfig.font);
